@@ -17,9 +17,11 @@ public class SwapCamera : MonoBehaviour
 
 	public void SetCameraFacingDirection(CameraFacingDirection direction) {
 		if (direction == CameraFacingDirection.User) {
+			SpawnSphere.instance.Hide();
 			arCameraManager.requestedFacingDirection = CameraFacingDirection.User;
 			arFaceManager.enabled = true;
 		} else {
+			SpawnSphere.instance.Show();
 			arFaceManager.enabled = false;
 			arCameraManager.requestedFacingDirection = CameraFacingDirection.World;
 			arSession.requestedTrackingMode = TrackingMode.PositionAndRotation;
